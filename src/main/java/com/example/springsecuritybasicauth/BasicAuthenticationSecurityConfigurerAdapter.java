@@ -1,7 +1,6 @@
 package com.example.springsecuritybasicauth;
 
 import lombok.AllArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -21,7 +20,11 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @AllArgsConstructor
-@ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true", matchIfMissing = true)
+/*
+ * to disable basic auth for test, you could use
+ * @ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true", matchIfMissing = true)
+ * and add app.security.basic.enabled = false to test/resources/application.properties
+ */
 public class BasicAuthenticationSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     
     private final MyBasicAuthenticationEntryPoint authenticationEntryPoint;
@@ -34,6 +37,7 @@ public class BasicAuthenticationSecurityConfigurerAdapter extends WebSecurityCon
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/health").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
