@@ -88,4 +88,4 @@ We provide full test for authorized / not authorized requests.
 
 Note that to disable basic auth for test, you could use:
 1. `@ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true", matchIfMissing = true)`
-1. and add `app.security.basic.enabled = false` to `test/resources/application.properties`.
+1. add `app.security.basic.enabled = false` to `test/resources/application.properties`.
