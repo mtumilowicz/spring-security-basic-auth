@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Ignore
-public class BaseIT {
+class BaseIT {
 
     @Autowired
     TestRestTemplate restTemplate;
@@ -25,5 +25,5 @@ public class BaseIT {
     String createURLWithPort(String uri) {
         return "http://localhost:" + port + uri;
     }
-    
+
 }
