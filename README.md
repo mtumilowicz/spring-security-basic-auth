@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.com/mtumilowicz/spring-security-basic-auth.svg?branch=master)](https://travis-ci.com/mtumilowicz/spring-security-basic-auth)
 
 # spring-security-basic-auth
-The main goal of this project is to show basic configuration of spring security Basic Authentication.
+The main goal of this project is to show configuration of Basic Authentication in
+Spring Security + Spring Boot environment.
 
 _Reference_: https://www.baeldung.com/spring-security-basic-authentication  
 _Reference_: http://websystique.com/spring-security/secure-spring-rest-api-using-basic-authentication/
@@ -85,6 +86,6 @@ and password combination should work for another page with the same realm.
 # tests
 We provide full test for authorized / not authorized requests.
 
-Note that to disable basic auth for test, you could use 
-`@ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true", matchIfMissing = true)`
-and add `app.security.basic.enabled = false` to `test/resources/application.properties`.
+Note that to disable basic auth for test, you could use:
+1. `@ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true", matchIfMissing = true)`
+1. and add `app.security.basic.enabled = false` to `test/resources/application.properties`.
