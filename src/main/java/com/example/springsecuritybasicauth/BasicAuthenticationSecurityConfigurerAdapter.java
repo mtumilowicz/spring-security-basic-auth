@@ -20,11 +20,6 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @AllArgsConstructor
-/*
- * to disable basic auth for test, you could use
- * @ConditionalOnProperty(value = "app.security.basic.enabled", havingValue = "true", matchIfMissing = true)
- * and add app.security.basic.enabled = false to test/resources/application.properties
- */
 public class BasicAuthenticationSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     
     private final MyBasicAuthenticationEntryPoint authenticationEntryPoint;
