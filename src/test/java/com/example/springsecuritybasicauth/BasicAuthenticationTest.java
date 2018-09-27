@@ -32,7 +32,7 @@ public class BasicAuthenticationTest extends BaseIT {
     }
 
     @Test
-    public void admin_unauthorized() {
+    public void admin_authorized() {
         assertThat(restTemplate
                         .withBasicAuth("admin", String.valueOf(new char[]{'a','d','m','i','n'}))
                         .getForEntity(
